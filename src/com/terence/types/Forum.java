@@ -1,10 +1,15 @@
 package com.terence.types;
 
+import javax.swing.JOptionPane;
+
 public class Forum {
 	private final int NBR_MESSAGES = 10;
 	private int NBR_MESSAGES_ACTUELS;
 	private MessageUtilisateur[] messages;
 	/**
+	 * @param jean 
+	 * @param string2 
+	 * @param string 
 	 * @param p_NBR_MESSAGES_ACTUELS
 	 * @param pMessages
 	 */
@@ -12,22 +17,29 @@ public class Forum {
 //		super();
 //		NBR_MESSAGES_ACTUELS = p_NBR_MESSAGES_ACTUELS;
 //		messages = pMessages;
-		messages = new MessageUtilisateur[NBR_MESSAGES];
-//		System.out.println(messages);
+		this.messages = new MessageUtilisateur[NBR_MESSAGES];
 	}
 	public boolean ajouterUtilisateurMessages(Utilisateur pUtilisateur , Message pMessage) {
-		if (messages != null) {
-			messages[NBR_MESSAGES_ACTUELS] = new MessageUtilisateur(pUtilisateur, pMessage);
-			return messages[NBR_MESSAGES_ACTUELS] != null;
+		try {
+			if(NBR_MESSAGES_ACTUELS <= NBR_MESSAGES) {
+				this.messages[NBR_MESSAGES_ACTUELS++] = new MessageUtilisateur(pUtilisateur, pMessage);
+				System.out.println(NBR_MESSAGES_ACTUELS);
+				return true;
+			}			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Limite des messages dépassée : " + NBR_MESSAGES_ACTUELS);
+			return false;
 		}
 		return false;
 	}
 	public String getListeMessagesAuteur() {
-//		System.out.println(messages.toString());
-		for (int i = NBR_MESSAGES_ACTUELS; i < NBR_MESSAGES; i++) {
-			System.out.println(NBR_MESSAGES_ACTUELS);
-			return "Titre : " + messages[i];
-			}
-		return null;
+		if (ajouterUtilisateurMessages(null, null) == true) {			
+				System.out.println(++NBR_MESSAGES_ACTUELS);
+				return "titre : " 
+				+ messages[++NBR_MESSAGES_ACTUELS] 
+				+ " texte : " + messages[++NBR_MESSAGES_ACTUELS] 
+				+ " auteur : " + messages[++NBR_MESSAGES_ACTUELS];
+		}
+			return "test";
 	}
 }
