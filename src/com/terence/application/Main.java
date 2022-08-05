@@ -21,12 +21,16 @@ public class Main {
 		
 		Message message1 = new Message("Java SE", "L'encapsulation est une propriété fondamentale", jean);
 		Message message2 = new Message("Java SE", "L'héritage en est une autre", jean);
+//		MessageUtilisateur messageUtilisateur = new MessageUtilisateur(jean, message1);
 //		JOptionPane.showMessageDialog(null, message1);
 //		System.out.println(message1);
 //		MessageUtilisateur messageUtil = new MessageUtilisateur(jean, message1);
 //		JOptionPane.showMessageDialog(null, messageUtil);
 //		new Forum(0, messageUtil);
 //		JOptionPane.showMessageDialog(null, message2);
+//		JOptionPane.showMessageDialog(null, messageUtilisateur.getMessage());
+//		JOptionPane.showMessageDialog(null, messageUtilisateur);
+		System.out.println(new Forum().ajouterUtilisateurMessages(jean, message1));
 		System.out.println(new Forum().getListeMessagesAuteur());
 	}
 

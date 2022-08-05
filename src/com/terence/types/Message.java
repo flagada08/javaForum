@@ -8,7 +8,6 @@ public class Message {
 	private String texte;
 	private Date dateCreation;
 	private Utilisateur utilisateur;
-//	public static final Forum forum = new Forum();
 	
 	public Message(String pTitre, String pTexte, Utilisateur pUtilisateur) {
 		titre = pTitre;
@@ -19,7 +18,9 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [" + titre + " -- " + texte + "\nDate de création : " + getDateCreation() + "\n"
+		return "Message [" 
+				+ titre + " -- " 
+				+ texte + "\nDate de création : " + getDateCreation() + "\n"
 				+ utilisateur + "]";
 	}
 
