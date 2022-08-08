@@ -4,24 +4,30 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public class Message {
+//	public static boolean nForum;
 	private String titre;
 	private String texte;
 	private Date dateCreation;
 	private Utilisateur utilisateur;
-	
+	public static Forum nForum = new Forum();
+
 	public Message(String pTitre, String pTexte, Utilisateur pUtilisateur) {
 		titre = pTitre;
 		texte = pTexte;
 		utilisateur = pUtilisateur;
 		dateCreation = new Date();
+		nForum.ajouterUtilisateurMessages(utilisateur, this);
 	}
 
 	@Override
 	public String toString() {
-		return "Message [" 
-				+ titre + " -- " 
-				+ texte + "\nDate de création : " + getDateCreation() + "\n"
-				+ utilisateur + "]";
+//		if(boolForum != null) {
+			return "Message [" 
+					+ titre + " -- " 
+					+ texte + "\nDate de création : " + getDateCreation() + "\n"
+					+ utilisateur + "]";			
+//		}
+//		return null;
 	}
 
 	public String getTitre() {
@@ -45,15 +51,15 @@ public class Message {
 		return df.format(dateCreation);
 	}
 
-//	public void setDateCreation(Date dateCreation) {
-//		this.dateCreation = dateCreation;
-//	}
+	//	public void setDateCreation(Date dateCreation) {
+	//		this.dateCreation = dateCreation;
+	//	}
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
-//	public void setUtilisateur(Utilisateur utilisateur) {
-//		this.utilisateur = utilisateur;
-//	}
+	//	public void setUtilisateur(Utilisateur utilisateur) {
+	//		this.utilisateur = utilisateur;
+	//	}
 }
